@@ -41,3 +41,4 @@ client/dist/prod/*.js
 client/dist/prod/**
 client/node_modules
 client/builds/**
+client/.idea
