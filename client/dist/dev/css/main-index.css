@@ -6,7 +6,6 @@ html, body
     min-width  : 360px !important;
     margin     : 0 auto;
     background-color : #ffffff;
-    font-family      : 'roboto_regular';
 }
 
 #app

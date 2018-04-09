@@ -4,10 +4,12 @@ import connect from "react-redux/lib/connect/connect";
 
 import { refreshWindowDimensions } from "./../actions";
 import Header from './Header'
+import SchoolsGrid from './SchoolsGrid'
 
 const styles = {
   MainApp: {
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
   }
@@ -30,6 +32,7 @@ class MainApp extends PureComponent {
     return (
       <div className={classes.MainApp}>
         <Header />
+        <SchoolsGrid/>
       </div>
     );
   }
