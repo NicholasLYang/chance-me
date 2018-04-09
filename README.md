@@ -1,9 +1,13 @@
-# README
+# School Seeker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+School Seeker is a website that helps you find the perfect fit for
+college. It uses a combination of crowd sourced reviews, data
+collection and rankings to help find the best possible place to spend
+your next 4 years.
 
-Things you may want to cover:
+School Seeker is built using Ruby on Rails with a React front end. It
+uses GraphQL to communicate with Apollo on the front end and GraphQL
+Ruby on the back end.
 
 * Ruby version
 
