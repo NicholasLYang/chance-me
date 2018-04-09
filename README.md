@@ -9,20 +9,17 @@ School Seeker is built using Ruby on Rails with a React front end. It
 uses GraphQL to communicate with Apollo on the front end and GraphQL
 Ruby on the back end.
 
-* Ruby version
+To run locally:
 
-* System dependencies
+1. Install [NodeJS](https://nodejs.org/en/) (at least version 6, but
+ideally 8)
 
-* Configuration
+2. Install [Ruby 2.5.0](https://www.ruby-lang.org/en/)
+([rbenv](https://github.com/rbenv/rbenv) highly recommended)
 
-* Database creation
+3. Install dependencies by running `./install.sh`
 
-* Database initialization
+4. Run the development servers with  `./run.sh`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The front end should be running on http://localhost:3002 and the back
+end should be running on http://localhost:3000.
