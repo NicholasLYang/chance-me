@@ -4,7 +4,7 @@ import connect from "react-redux/lib/connect/connect";
 
 import { refreshWindowDimensions } from "./../actions";
 import Header from './Header'
-import SchoolsGrid from './SchoolsGrid'
+import { withRouter } from 'react-router-dom'
 
 const styles = {
   MainApp: {
@@ -32,7 +32,9 @@ class MainApp extends PureComponent {
     return (
       <div className={classes.MainApp}>
         <Header />
-        <SchoolsGrid/>
+        <div>
+          {this.props.children}
+        </div>
       </div>
     );
   }
@@ -50,4 +52,4 @@ const VisibleMainApp = connect(
   })
 )(injectSheet(styles)(MainApp));
 
-export default VisibleMainApp;
+export default withRouter(VisibleMainApp);

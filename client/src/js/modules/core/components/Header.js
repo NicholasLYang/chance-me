@@ -1,5 +1,6 @@
 import React from "react";
 import injectSheet from "react-jss";
+import { Link } from 'react-router-dom'
 
 const styles = {
   Header: {
@@ -11,7 +12,8 @@ const styles = {
 const Header = ({ classes }) => {
   return (
     <div className={classes.Header}>
-      <h1> School Seeker </h1>
+      <Link to="/"> <h1> School Seeker </h1> </Link>
+      <Link to="/schools/new"> Add Your School </Link>
     </div>
   )
 }

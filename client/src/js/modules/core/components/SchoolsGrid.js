@@ -2,6 +2,7 @@ import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import injectSheet from "react-jss";
+import SchoolPreview from './SchoolPreview'
 
 const styles = {
   SchoolsGrid: {
@@ -20,6 +21,7 @@ const SchoolsGrid = ({ classes }) => {
           {
             allSchools {
               name
+              medium_image_url
             }
           }
         `}
@@ -28,11 +30,7 @@ const SchoolsGrid = ({ classes }) => {
           if (loading) return <p> Loading... </p>;
           if (error) return <p> Error: {error} </p>;
 
-          return data.allSchools.map(({ name }) => (
-            <div>
-              <h2> {name} </h2>{" "}
-            </div>
-          ));
+          return data.allSchools.map(school => <SchoolPreview {...school} />)
         }}
       </Query>
     </div>
