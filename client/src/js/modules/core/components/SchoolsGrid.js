@@ -7,7 +7,6 @@ import SchoolPreview from './SchoolPreview'
 const styles = {
   SchoolsGrid: {
     display: "grid",
-    fontFamily: "Source Serif Pro, serif",
     gridGap: "10px 10px",
     gridTemplateColumns: "auto auto auto",
     gridTemplateRows: "auto auto auto"

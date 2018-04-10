@@ -6,6 +6,7 @@ html, body
     min-width  : 360px !important;
     margin     : 0 auto;
     background-color : #ffffff;
+    font-family: "Source Serif Pro", Garamond, Athelas, serif
 }
 
 #app

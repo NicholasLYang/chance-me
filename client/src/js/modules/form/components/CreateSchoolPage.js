@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
-import { CREATE_SCHOOL } from "../mutations";
+import { CREATE_SCHOOL } from "../../core/mutations";
 import CreateSchoolForm from "./CreateSchoolForm";
 import { push } from "react-router-redux";
 import { bindActionCreators } from "redux";
@@ -10,13 +10,12 @@ class CreateSchoolPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      images: undefined
     };
   }
 
   handleAddImage = acceptedFiles => {
-    const { images } = this.state;
-    this.setState({ images: [...images, acceptedFiles] });
+    this.setState({ image: acceptedFiles[0] });
   };
 
   handleCompletion = () => {
@@ -24,14 +23,14 @@ class CreateSchoolPage extends Component {
   };
 
   render() {
-    const { images } = this.state;
+    const { image } = this.state;
     return (
       <Mutation mutation={CREATE_SCHOOL} onCompleted={this.handleCompletion}>
         {createSchool => (
           <div>
             <CreateSchoolForm
               handleAddImage={this.handleAddImage}
-              images={images}
+              image={image}
               onSubmit={values => {
                 createSchool({ variables: { name: values.name } });
               }}

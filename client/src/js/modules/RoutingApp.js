@@ -5,7 +5,7 @@ import appHistory from "tools/appHistory";
 import MainApp from "./core/components/MainApp";
 import ConnectedRouter from "react-router-redux/ConnectedRouter";
 import store from "../store";
-import CreateSchoolPage from "./core/components/CreateSchoolPage";
+import CreateSchoolPage from "./form/components/CreateSchoolPage";
 import SchoolsGrid from './core/components/SchoolsGrid'
 
 class RoutingApp extends Component {
