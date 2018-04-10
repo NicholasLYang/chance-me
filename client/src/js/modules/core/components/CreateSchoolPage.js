@@ -1,32 +1,24 @@
-import React from "react"
-import { Mutation } from 'react-apollo'
-import { CREATE_SCHOOL } from '../mutations'
+import React from "react";
+import { Mutation } from "react-apollo";
+import { CREATE_SCHOOL } from "../mutations";
+import CreateSchoolForm from "./CreateSchoolForm";
+import { reset } from "redux-form"
 
 const CreateSchoolPage = () => {
-  let input;
   return (
     <Mutation mutation={CREATE_SCHOOL}>
-      {(createSchool, { data }) => (
+      {(createSchool) => (
         <div>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              createSchool({ variables: { name: input.value }})
-              input.value = "";
+          <CreateSchoolForm
+            onSubmit={values => {
+              createSchool({variables: {name: values.name}});
+              reset('createSchool');
             }}
-          >
-            <input
-              ref={node => {
-                input = node;
-              }}
-            />
-            <button type="submit"> Create School </button>
-          </form>
+          />
         </div>
       )}
     </Mutation>
-  )
-
-}
+  );
+};
 
 export default CreateSchoolPage;
