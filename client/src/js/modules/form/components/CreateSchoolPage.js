@@ -8,6 +8,7 @@ import injectSheet from "react-jss";
 import SchoolNameForm from "./SchoolNameForm";
 import AddImageForm from "./AddImageForm";
 import Block from "../../core/components/Block";
+import SubmitSchoolForm from "./SubmitSchoolForm";
 
 const styles = {
   CreateSchoolPage: {
@@ -27,13 +28,13 @@ class CreateSchoolPage extends Component {
     };
   }
 
-  nextPage = () => {
+  getNextPage = () => {
     console.log(this.state.currentPage);
     this.setState({ currentPage: this.state.currentPage + 1 });
     console.log(this.state.currentPage);
   };
 
-  previousPage = () => {
+  getPreviousPage = () => {
     this.setState({ currentPage: this.state.currentPage - 1 });
   };
 
@@ -54,18 +55,29 @@ class CreateSchoolPage extends Component {
           <div className={classes.CreateSchoolPage}>
             {currentPage > 0 && (
               <Block>
-                <SchoolNameForm onSubmit={this.nextPage} />
+                <SchoolNameForm
+                  onSubmit={this.getNextPage}
+                  isCurrentPage={currentPage === 1}
+                />
               </Block>
             )}
             {currentPage > 1 && (
               <Block>
                 <AddImageForm
                   handleAddImage={this.handleAddImage}
-                  onSubmit={values => {
-                    createSchool({ variables: { name: values.name } });
-                  }}
-                  previousPage={this.previousPage}
+                  onSubmit={this.getNextPage}
+                  getPreviousPage={this.getPreviousPage}
+                  isCurrentPage={currentPage === 2}
                   image={image}
+                />
+              </Block>
+            )}
+            {currentPage > 2 && (
+              <Block>
+                <SubmitSchoolForm
+                  onSubmit={values => {
+                    createSchool({ variables: { name: values.name, image } });
+                  }}
                 />
               </Block>
             )}

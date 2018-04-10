@@ -2,25 +2,27 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import injectSheet from "react-jss";
 import { compose } from "redux";
-import { template, Transition, animated } from "react-spring";
 
 const styles = {
   SchoolNameForm: {
-    padding: "20px"
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   }
 };
 
-const SchoolNameForm = ({ handleSubmit }) => {
+const SchoolNameForm = ({ classes, handleSubmit, isCurrentPage }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="Name"> College Name </label>
-        <Field name="name" component="input" type="text" />
-      </div>
-      <div>
-        <button type="submit"> Next</button>
-      </div>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <div className={classes.SchoolNameForm}>
+          <label htmlFor="Name"> College Name </label>
+          <Field name="name" component="input" type="text" />
+        </div>
+        <div>
+          { isCurrentPage && <button type="submit"> Next</button> }
+        </div>
+      </form>
   );
 };
 

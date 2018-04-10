@@ -18,7 +18,7 @@ const styles = {
 
 const Block = ({ classes, children }) => {
   return (
-    <Transition native from={{ x: -100 }} enter={{ x: 0 }} leave={{ x: 100 }}>
+    <Transition native from={{ x: -50 }} enter={{ x: 0 }}>
       {({x}) => (
         <animated.div
           style={{transform: template`translate3d(${x}vw, 0, 0)`}}
