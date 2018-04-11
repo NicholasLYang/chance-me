@@ -29,9 +29,7 @@ class CreateSchoolPage extends Component {
   }
 
   getNextPage = () => {
-    console.log(this.state.currentPage);
     this.setState({ currentPage: this.state.currentPage + 1 });
-    console.log(this.state.currentPage);
   };
 
   getPreviousPage = () => {
@@ -53,7 +51,7 @@ class CreateSchoolPage extends Component {
       <Mutation mutation={CREATE_SCHOOL} onCompleted={this.handleCompletion}>
         {createSchool => (
           <div className={classes.CreateSchoolPage}>
-            {currentPage > 0 && (
+            {currentPage === 1 && (
               <Block>
                 <SchoolNameForm
                   onSubmit={this.getNextPage}
@@ -61,7 +59,7 @@ class CreateSchoolPage extends Component {
                 />
               </Block>
             )}
-            {currentPage > 1 && (
+            {currentPage === 2 && (
               <Block>
                 <AddImageForm
                   handleAddImage={this.handleAddImage}
@@ -72,7 +70,7 @@ class CreateSchoolPage extends Component {
                 />
               </Block>
             )}
-            {currentPage > 2 && (
+            {currentPage === 3 && (
               <Block>
                 <SubmitSchoolForm
                   onSubmit={values => {
