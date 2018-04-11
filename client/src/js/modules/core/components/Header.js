@@ -12,7 +12,7 @@ const styles = {
 const Header = ({ classes }) => {
   return (
     <div className={classes.Header}>
-      <Link to="/"> <h1> School Seeker </h1> </Link>
+      <Link to="/"> <h1> ChanceMe </h1> </Link>
       <Link to="/schools/new"> Add Your School </Link>
     </div>
   )
