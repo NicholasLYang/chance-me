@@ -9,6 +9,10 @@ html, body
     font-family: "Source Serif Pro", Garamond, Athelas, serif
 }
 
+a {
+    text-decoration: none;
+}
+
 #app
 {
     display    : inline;
