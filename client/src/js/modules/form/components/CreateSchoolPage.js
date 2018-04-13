@@ -51,7 +51,7 @@ class CreateSchoolPage extends Component {
       <Mutation mutation={CREATE_SCHOOL} onCompleted={this.handleCompletion}>
         {createSchool => (
           <div className={classes.CreateSchoolPage}>
-            {currentPage === 1 && (
+            {currentPage > 0 && (
               <Block>
                 <SchoolNameForm
                   onSubmit={this.getNextPage}
@@ -59,7 +59,7 @@ class CreateSchoolPage extends Component {
                 />
               </Block>
             )}
-            {currentPage === 2 && (
+            {currentPage > 1 && (
               <Block>
                 <AddImageForm
                   handleAddImage={this.handleAddImage}
@@ -70,7 +70,7 @@ class CreateSchoolPage extends Component {
                 />
               </Block>
             )}
-            {currentPage === 3 && (
+            {currentPage > 2 && (
               <Block>
                 <SubmitSchoolForm
                   onSubmit={values => {
