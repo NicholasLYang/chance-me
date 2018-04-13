@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import injectSheet from "react-jss";
 import { template, Transition, animated } from "react-spring";
 
@@ -16,7 +16,16 @@ const styles = {
   }
 };
 
-const Block = ({ classes, children }) => {
+interface BlockClasses {
+  Block: string;
+}
+
+interface BlockProps {
+  classes: BlockClasses;
+  children: JSX.Element[] | JSX.Element;
+}
+
+const Block: React.SFC<BlockProps> = ({ classes, children }) => {
   return (
     <Transition native from={{ x: -50 }} enter={{ x: 0 }}>
       {({ x }) => (
