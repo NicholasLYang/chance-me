@@ -6,6 +6,7 @@ import SchoolPreview from './SchoolPreview'
 
 const styles = {
   SchoolsGrid: {
+    padding: "20px",
     display: "grid",
     gridGap: "10px 10px",
     gridTemplateColumns: "auto auto auto",

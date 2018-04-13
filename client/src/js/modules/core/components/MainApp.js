@@ -12,12 +12,6 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
-  },
-  headerContainer: {
-    display: "flex",
-    padding: "10px",
-    justifyContent: "flex-start",
-    width: "100%"
   }
 };
 
@@ -37,9 +31,7 @@ class MainApp extends PureComponent {
 
     return (
       <div className={classes.MainApp}>
-        <div className={classes.headerContainer}>
         <Header />
-        </div>
         <div>
           {this.props.children}
         </div>

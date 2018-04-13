@@ -6,12 +6,13 @@ const TEXT_GRAY = "#e0e0e0";
 
 const styles = {
   Header: {
+    margin: "0",
     backgroundColor: "maroon",
     width: "100%",
     paddingLeft: "20px",
     display: "flex",
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "center",
     fontFamily: "Fira Sans, Helvetica, sans-serif",
     fontSize: "2em"
   },
@@ -28,7 +29,7 @@ const styles = {
     borderColor: "white",
     padding: "8px",
     borderRadius: "10px",
-    color: TEXT_GRAY,
+    color: "white",
     '&:hover': {
       backgroundColor: "white",
       borderColor: "white",
