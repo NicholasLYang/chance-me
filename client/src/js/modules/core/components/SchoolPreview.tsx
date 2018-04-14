@@ -1,9 +1,12 @@
 import * as React from "react";
-import injectSheet from "react-jss"
-
+import injectSheet from "react-jss";
 
 const styles = {
   SchoolPreview: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     padding: "20px",
     backgroundColor: "#f5f5f5",
     "&:hover": {
@@ -21,7 +24,11 @@ interface SchoolPreviewProps {
   medium_image_url: string;
 }
 
-const SchoolPreview: React.SFC<SchoolPreviewProps> = ({ classes, name, medium_image_url }) => {
+const SchoolPreview: React.SFC<SchoolPreviewProps> = ({
+  classes,
+  name,
+  medium_image_url
+}) => {
   return (
     <div className={classes.SchoolPreview}>
       <h2> {name} </h2>

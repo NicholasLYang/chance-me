@@ -1,38 +1,19 @@
 import React from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import injectSheet from "react-jss";
-import SchoolPreview from './SchoolPreview'
+import SchoolPreview from "./SchoolPreview";
+import Grid from "react-css-grid";
 
 const styles = {
   SchoolsGrid: {
-    padding: "20px",
-    display: "grid",
-    gridGap: "10px 10px",
-    gridTemplateColumns: "auto auto auto",
-    gridTemplateRows: "auto auto auto"
+    padding: "20px"
   }
 };
-const SchoolsGrid = ({ classes }) => {
+const SchoolsGrid = ({ classes, schools }) => {
   return (
     <div className={classes.SchoolsGrid}>
-      <Query
-        query={gql`
-          {
-            allSchools {
-              name
-              medium_image_url
-            }
-          }
-        `}
-      >
-        {({ loading, error, data }) => {
-          if (loading) return <p> Loading... </p>;
-          if (error) return <p> Error. Data failed to fetch </p>;
-
-          return data.allSchools.map(school => <SchoolPreview {...school} />)
-        }}
-      </Query>
+      <Grid width={256} align="baseline">
+        {schools.map(school => <SchoolPreview key={school.id} {...school} />)}
+      </Grid>
     </div>
   );
 };

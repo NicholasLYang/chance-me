@@ -2,7 +2,7 @@ import * as React from "react";
 import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
 
-const TEXT_GRAY = "#e0e0e0";
+const TEXT_GRAY = "#ebebeb";
 
 const styles = {
   Header: {
@@ -14,7 +14,7 @@ const styles = {
     flexDirection: "row",
     alignItems: "center",
     fontFamily: "Fira Sans, Helvetica, sans-serif",
-    fontSize: "2em"
+    fontSize: "1.5em"
   },
   links: {
     height: "100%",
@@ -28,7 +28,7 @@ const styles = {
     border: "solid 2px",
     borderColor: "white",
     padding: "8px",
-    borderRadius: "10px",
+    borderRadius: "8px",
     color: "white",
     '&:hover': {
       backgroundColor: "white",
@@ -55,11 +55,11 @@ const Header: React.SFC<HeaderProps> = ({ classes }) => {
   return (
     <div className={classes.Header}>
       <Link to="/" className={classes.masthead}>
-          <h1> ChanceMe </h1>
+          <h1> Chance Me </h1>
       </Link>
       <div className={classes.links}>
         <Link className={classes.button} to="/schools/new">
-          Add Your School{" "}
+          Add Your School
         </Link>
       </div>
     </div>
