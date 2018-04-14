@@ -9,4 +9,12 @@ Types::QueryType = GraphQL::ObjectType.define do
       School.all
     }
   end
+
+  field :schoolBySlug, Types::SchoolType do
+    description "Get school by slug"
+    argument :slug, types.String
+    resolve ->(obj, args, ctx) {
+      School.friendly.find(args["slug"])
+    }
+  end
 end

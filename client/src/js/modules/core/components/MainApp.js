@@ -3,8 +3,8 @@ import injectSheet from "react-jss";
 import connect from "react-redux/lib/connect/connect";
 
 import { refreshWindowDimensions } from "./../actions";
-import Header from './Header'
-import { withRouter } from 'react-router-dom'
+import Header from "./Header";
+import { withRouter } from "react-router-dom";
 
 const styles = {
   MainApp: {
@@ -16,7 +16,6 @@ const styles = {
 };
 
 class MainApp extends PureComponent {
-
   onResizeWindow = () => {
     this.props.onResizeWindow();
   };
@@ -32,16 +31,14 @@ class MainApp extends PureComponent {
     return (
       <div className={classes.MainApp}>
         <Header />
-        <div>
-          {this.props.children}
-        </div>
+        <div>{this.props.children}</div>
       </div>
     );
   }
 }
 
 const VisibleMainApp = connect(
-  (state) => ({
+  state => ({
     viewportWidth: state.core.viewportWidth,
     viewportHeight: state.core.viewportHeight
   }),

@@ -1,4 +1,7 @@
 class School < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   include Rails.application.routes.url_helpers
 
   HOST = "http://localhost:3000"
