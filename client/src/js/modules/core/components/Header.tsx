@@ -2,8 +2,6 @@ import * as React from "react";
 import injectSheet from "react-jss";
 import { Link } from "react-router-dom";
 
-const TEXT_GRAY = "#ebebeb";
-
 const styles = {
   Header: {
     margin: "0",
@@ -30,14 +28,15 @@ const styles = {
     padding: "8px",
     borderRadius: "8px",
     color: "white",
+    transition: "background-color 0.5s, color 0.5s",
     '&:hover': {
       backgroundColor: "white",
-      borderColor: "white",
       color: "maroon"
     }
   },
   masthead: {
-    color: TEXT_GRAY,
+    paddingLeft: "10px",
+    color: "white",
   }
 };
 

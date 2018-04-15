@@ -11,6 +11,7 @@ const HomePage = () => {
           allSchools {
             id
             name
+            slug
             medium_image_url
           }
         }

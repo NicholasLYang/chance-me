@@ -9,9 +9,9 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     fontSize: "2em",
-    width: "300px",
-    height: "300px",
-    backgroundColor: "coral",
+    width: "400px",
+    height: "400px",
+    backgroundColor: "#b9b9b9",
     borderRadius: "10px"
   }
 };
