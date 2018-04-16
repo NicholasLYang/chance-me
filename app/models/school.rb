@@ -4,7 +4,7 @@ class School < ApplicationRecord
 
   include Rails.application.routes.url_helpers
 
-  HOST = "http://localhost:3000"
+  HOST = Rails.env.development? ? "http://localhost:3000" : "http://api.chance-me.com"
   has_one_attached :image
 
   def image_url
