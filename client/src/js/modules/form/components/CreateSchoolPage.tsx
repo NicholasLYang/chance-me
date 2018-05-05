@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import * as React from "react";
+import axios from "axios";
 import { Mutation } from "react-apollo";
 import { CREATE_SCHOOL } from "../../core/mutations";
 import { push } from "react-router-redux";
-import { bindActionCreators, compose } from "redux";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { API_URL } from "../../constants";
+import { objectToFormData } from "../../utils";
 import injectSheet from "react-jss";
 import SchoolNameForm from "./SchoolNameForm";
 import AddImageForm from "./AddImageForm";
@@ -19,11 +22,16 @@ const styles = {
   }
 };
 
-class CreateSchoolPage extends Component {
-  constructor(props) {
+interface PageState {
+  image: any;
+  currentPage: number;
+}
+
+class CreateSchoolPage extends React.Component<any, PageState> {
+  constructor(props: any) {
     super(props);
     this.state = {
-      images: undefined,
+      image: undefined,
       currentPage: 1
     };
   }
@@ -41,7 +49,15 @@ class CreateSchoolPage extends Component {
   };
 
   handleCompletion = () => {
-    push("/");
+    let data = {
+      school: {
+        image: this.state.image
+      }
+    };
+    axios.post(`${API_URL}/upload`, objectToFormData(data)).then(response => {
+      console.log(response);
+      push("/");
+    });
   };
 
   render() {
@@ -88,6 +104,6 @@ class CreateSchoolPage extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators({ push }, dispatch);
 
-export default compose(connect(null, mapDispatchToProps), injectSheet(styles))(
-  CreateSchoolPage
+export default injectSheet(styles)(
+  connect(null, mapDispatchToProps)(CreateSchoolPage)
 );

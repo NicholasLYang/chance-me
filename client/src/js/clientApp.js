@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import { RoutingApp } from "./modules";
 import { AppContainer } from "react-hot-loader";
 import injectTapEventPlugin from "react-tap-event-plugin";
-import ApolloClient from "apollo-boost"
-import { ApolloProvider } from "react-apollo"
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 
 // for onClick events with MUI/React
 try {
@@ -15,17 +15,18 @@ try {
 }
 
 import { VERSION } from "./versionInfo";
+import {API_URL} from "./modules/constants";
 
 console.log("appVersion ->", VERSION);
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql"
-})
+  uri: `${API_URL}/graphql`
+});
 
 ReactDOM.render(
   <AppContainer>
     <ApolloProvider client={client}>
       <RoutingApp />
     </ApolloProvider>
-    </AppContainer>,
+  </AppContainer>,
   document.getElementById("app")
 );

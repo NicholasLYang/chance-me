@@ -9,16 +9,21 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    padding: "20px",
     backgroundColor: "#f5f5f5",
+    paddingBottom: "40px",
+    paddingTop: "20px",
     "&:hover": {
       backgroundColor: "#e4e4e4"
     }
+  },
+  image: {
+    maxWidth: "80%",
   }
 };
 
 interface SchoolPreviewClasses {
   SchoolPreview: string;
+  image: string;
 }
 interface SchoolPreviewProps {
   classes: SchoolPreviewClasses;
@@ -37,7 +42,7 @@ const SchoolPreview: React.SFC<SchoolPreviewProps> = ({
     <Link to={`/schools/${slug}`}>
     <div className={classes.SchoolPreview}>
       <h2> {name} </h2>
-      <img src={medium_image_url} />
+      <img className={classes.image} src={medium_image_url} />
     </div>
     </Link>
   );

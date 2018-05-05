@@ -23,6 +23,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^16.1.1",
+    "dotenv": "^5.0.1",
     "events": "^2.0.0",
     "figlet": "^1.2.0",
     "gulp": "^3.9.1",
@@ -77,6 +78,7 @@
     "react-dropzone": "^4.2.9",
     "react-spring": "^4.0.1",
     "redux-form": "^7.3.0",
-    "yargs": "^11.1.0"
+    "yargs": "^11.1.0",
+    "axios": "latest"
   }
 }

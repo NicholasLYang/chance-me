@@ -1,11 +1,12 @@
 import * as React from "react";
 import injectSheet from "react-jss";
-import { Link } from "react-router-dom";
+import Logo from "./Logo";
+import { Link } from "react-router-dom"
 
 const styles = {
   Header: {
     margin: "0",
-    backgroundColor: "maroon",
+    backgroundColor: "white",
     width: "100%",
     paddingLeft: "20px",
     display: "flex",
@@ -20,23 +21,27 @@ const styles = {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    flexGrow: "2",
+    flexGrow: "2"
   },
   button: {
     border: "solid 2px",
+    fontSize: "0.8em",
     borderColor: "white",
     padding: "8px",
     borderRadius: "8px",
     color: "white",
     transition: "background-color 0.5s, color 0.5s",
-    '&:hover': {
+    "&:hover": {
       backgroundColor: "white",
       color: "maroon"
     }
   },
   masthead: {
+    display: "flex",
+    flexDirection: "row",
+    fontSize: "0.8em",
     paddingLeft: "10px",
-    color: "white",
+    color: "#ED3535"
   }
 };
 
@@ -54,7 +59,8 @@ const Header: React.SFC<HeaderProps> = ({ classes }) => {
   return (
     <div className={classes.Header}>
       <Link to="/" className={classes.masthead}>
-          <h1> Chance Me </h1>
+        <Logo />
+        <h1> Chance Me </h1>
       </Link>
       <div className={classes.links}>
         <Link className={classes.button} to="/schools/new">

@@ -3,6 +3,7 @@
 // TODO -> come up with cleaner way of keeping track
 // TODO... of update count, preventing bump-version, etc
 var _global = { DEV_MODE: false };
+require('dotenv').config();
 
 var gulp = require("gulp"),
   uglify = require("gulp-uglify"),
@@ -371,8 +372,14 @@ function scripts(p) {
       Notices.errorBuilding({ message: err.message });
     });
 
-    //bundle files into build.js
+    // bundle files into build.js
     stream = stream.pipe(source(Paths.BUILDJS_OUT));
+    stream = stream.pipe(
+      replace(
+        '__API_URL_HERE__',
+        _global.DEV_MODE ? process.env.DEV_API : process.env.PROD_API
+      )
+    );
 
     if (watch && rebuild) {
       return stream.pipe(gulp.dest(Paths.DEST_DEV));

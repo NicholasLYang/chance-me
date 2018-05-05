@@ -12,6 +12,9 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
+  },
+  mainContent: {
+    width: "100%"
   }
 };
 
@@ -31,7 +34,7 @@ class MainApp extends PureComponent {
     return (
       <div className={classes.MainApp}>
         <Header />
-        <div>{this.props.children}</div>
+        <div className={classes.mainContent}>{this.props.children}</div>
       </div>
     );
   }
