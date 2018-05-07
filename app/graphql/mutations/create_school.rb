@@ -1,13 +1,15 @@
 class Mutations::CreateSchool < GraphQL::Function
   argument :name, !types.String
-  argument :image, !Types::Scalars::FileType
+  argument :description, types.String
+  argument :topic_sentence, types.String
 
   type Types::SchoolType
 
   def call(_obj, args, ctx)
-    filename = File.basename(args["image"])
-    school = School.new(name: args["name"])
-    school.image.attach(io: args["image"], filename: filename)
-    school.save!
+    School.create(
+      name: args["name"],
+      description: args["description"],
+      topic_sentence: args["topic_sentence"]
+    )
   end
 end

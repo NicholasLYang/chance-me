@@ -1,6 +1,6 @@
 import * as React from "react";
 import injectSheet from "react-jss";
-import Logo from "./Logo";
+import Logo from "../../icons/components/Logo";
 import { Link } from "react-router-dom"
 
 const styles = {

@@ -23,19 +23,19 @@ const Logo = props => (
       />
     </defs>
     <g fill="none" fillRule="evenodd">
-      <use fill="#ED3535" xlinkHref="#a" />
+      <use fill="currentColor" xlinkHref="#a" />
       <path
-        stroke="#ED3535"
+        stroke="currentColor"
         d="M29.62 35.77c-2.808-1.04-5.07 1.045-5.07 4.826v44.526c0 3.902 2.458 8.02 5.424 9.16l34.462 13.236c2.806 1.078 5.064-1.005 5.064-4.83v-45.01c0-3.947-2.456-8.063-5.417-9.159L29.62 35.77z"
       />
-      <use fill="#ED3535" xlinkHref="#b" />
+      <use fill="currentColor" xlinkHref="#b" />
       <path
-        stroke="#ED3535"
+        stroke="currentColor"
         d="M118.364 41.06c-.008-4.125-2.274-6.508-5.04-5.526l-34.14 11.81c-2.92.983-5.371 5.118-5.396 9.209l-.288 46.595c-.024 3.99 2.258 6.434 5.061 5.625L113.065 98.5c2.943-.903 5.392-5.083 5.384-9.312l-.085-48.128z"
       />
-      <use fill="#ED3535" xlinkHref="#c" />
+      <use fill="currentColor" xlinkHref="#c" />
       <path
-        stroke="#ED3535"
+        stroke="currentColor"
         d="M33.705 29.582c-2.74.928-3.01 1.924-.971 2.663l33.272 12.063c2.467.894 6.972.798 9.99-.224l33.196-11.246c2.74-.928 3.01-1.924.97-2.664L76.892 18.111c-2.467-.894-6.972-.797-9.99.225L33.705 29.582z"
       />
       <path
