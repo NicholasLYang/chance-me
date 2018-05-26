@@ -26,14 +26,14 @@ const styles = {
   button: {
     border: "solid 2px",
     fontSize: "0.8em",
-    borderColor: "white",
+    borderColor: "",
     padding: "8px",
     borderRadius: "8px",
-    color: "white",
+    color: "#2b2d42",
     transition: "background-color 0.5s, color 0.5s",
     "&:hover": {
       backgroundColor: "white",
-      color: "maroon"
+      color: "black"
     }
   },
   masthead: {
@@ -58,6 +58,11 @@ interface HeaderProps {
 const Header: React.SFC<HeaderProps> = ({ classes }) => {
   return (
     <div className={classes.Header}>
+      <div className={classes.links}>
+      <Link className={classes.button} to="/about">
+        About 
+      </Link>
+      </div>
       <Link to="/" className={classes.masthead}>
         <Logo />
         <h1> Chance Me </h1>
