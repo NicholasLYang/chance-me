@@ -23,3 +23,5 @@ ideally 8)
 
 The front end should be running on http://localhost:3002 and the back
 end should be running on http://localhost:3000.
+
+Contributions are welcome! Please read [this](/CONTRIBUTING.md) for more info
