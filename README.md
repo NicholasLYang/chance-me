@@ -1,4 +1,5 @@
 # ChanceMe
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ChanceMe is a website that helps you find the perfect fit for
 college. It uses a combination of crowd sourced reviews, data
