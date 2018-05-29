@@ -24,7 +24,11 @@ interface PageState {
   image: any;
 }
 
-class CreateSchoolPage extends React.Component<any, PageState> {
+interface PageProps {
+  push: (string) => void;
+}
+
+class CreateSchoolPage extends React.Component<PageProps, PageState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -54,17 +58,15 @@ class CreateSchoolPage extends React.Component<any, PageState> {
   render() {
     const { image } = this.state;
     return (
-      <Mutation mutation={CREATE_SCHOOL} onCompleted={this.handleCompletion}>
+      <Mutation
+        mutation={CREATE_SCHOOL}
+        onCompleted={this.handleCompletion}
+        refetchQueries={['getAllSchools']}
+      >
         {createSchool => (
           <CreateSchoolForm
             onSubmit={values => {
               createSchool({ variables: values });
-            }}
-            update={(cache, { data: { createSchool } }) => {
-              console.log("HEELO");
-              console.log(createSchool);
-              const cacheData = cache.readQuery({ query: ALL_SCHOOLS });
-              console.log(cacheData);
             }}
             handleAddImage={this.handleAddImage}
             image={image}

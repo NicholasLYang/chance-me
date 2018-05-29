@@ -6,6 +6,7 @@ export const CREATE_SCHOOL = gql`
       id
       slug
       name
+      medium_image_url
     }
   }
 `;
