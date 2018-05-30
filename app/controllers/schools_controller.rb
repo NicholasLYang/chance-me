@@ -1,11 +1,7 @@
 class SchoolsController < ApplicationController
   def upload
-    school = School.friendly.find(params[:slug])
-    school.image.attach(image_params)
+    school = School.friendly.find(params[:school][:slug])
+    school.image.attach(params[:school][:image])
   end
 
-  private
-  def image_param
-    params.require(:school).permit(:image)
-  end
 end

@@ -26,6 +26,7 @@ export const objectToFormData = (obj, form, namespace) => {
       }
     }
   }
+  return fd;
 };
 
 

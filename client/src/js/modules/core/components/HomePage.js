@@ -1,21 +1,12 @@
 import * as React from "react";
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import SchoolsGrid from "./SchoolsGrid";
+import {ALL_SCHOOLS} from "../queries";
 
 const HomePage = () => {
   return (
     <Query
-      query={gql`
-        {
-          allSchools {
-            id
-            name
-            slug
-            medium_image_url
-          }
-        }
-      `}
+      query={ALL_SCHOOLS}
     >
       {({ loading, error, data }) => {
         if (loading) return <p> Loading... </p>;
