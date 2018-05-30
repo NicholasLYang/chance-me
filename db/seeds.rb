@@ -30,4 +30,15 @@ School.find_each do |school|
   f = File.open(Rails.root + "db/columbia.jpg")
   school.image.attach(io: f, filename: "my_img.jpg") unless
     school.image.attached?
+
+  Topic.create([
+                 { name: "Sports",
+                   slug: "sports" },
+                 { name: "Professors",
+                   slug: "profs" },
+                 { name: "Location",
+                   slug: "location" },
+                 { name: "Student Body",
+                   slug: "student-body" }
+               ])
 end
