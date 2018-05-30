@@ -42,5 +42,10 @@ School.find_each do |school|
                  { name: "Student Body",
                    slug: "student-body" }
                ])
+
+  Topic.find_each do |topic|
+    topic.reviews.create(content: "Fantastic! The best! I love it!")
+    topic.reviews.create(content: "Terrible! The worst! I hate it!")
+  end
 end
 
