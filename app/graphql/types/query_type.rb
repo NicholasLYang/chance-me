@@ -24,4 +24,5 @@ Types::QueryType = GraphQL::ObjectType.define do
       Topic.all
     }
   end
+
 end
