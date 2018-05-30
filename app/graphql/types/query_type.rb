@@ -17,4 +17,11 @@ Types::QueryType = GraphQL::ObjectType.define do
       School.friendly.find(args["slug"])
     }
   end
+
+  field :allTopics, types[Types::TopicType] do
+    description "Get all topics"
+    resolve ->(obj, args, ctx) {
+      Topic.all
+    }
+  end
 end
