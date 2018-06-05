@@ -34,3 +34,9 @@ Also, please try to keep pull requests small. There's no specific
 cutoff, but if it takes half an hour to just read, chances are it's
 too complicated. Remember, incremental change is better than no change
 at all. Exceptions include major refactoring that **must** happen.
+
+
+## Codebase Layout
+
+If you're confused on how the code is laid out or how to start reading
+the codebase, read the [Codebase Guide](/CODEBASE_GUIDE.md)
