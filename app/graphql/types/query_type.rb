@@ -25,4 +25,11 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :allReviews, types[Types::ReviewType] do
+    description "Get all reviews"
+    resolve ->(obj, args, ctx) {
+      Review.all
+    }
+  end
+
 end
