@@ -1,29 +1,31 @@
 import * as React from "react";
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import { graphql } from "react-apollo";
 import School from "./School";
+import SchoolReviews from "./SchoolReviews";
 
-const schoolBySlugQuery = gql`
+const schoolPageQuery = gql`
   query schoolBySlug($slug: String!) {
     schoolBySlug(slug: $slug) {
+      id
       name
-      topic_sentence
+      gist
       description
-      medium_image_url
+      medium_image_url      
     }
   }
 `;
 
-const SchoolPage = ({ match }) => {
-  return (
-    <Query query={schoolBySlugQuery} variables={{ slug: match.params.slug }}>
-      {({ loading, error, data }) => {
-        if (loading) return <div> Loading... </div>;
-        if (error) return <div> Error </div>;
-        return <School {...data.schoolBySlug} />;
-      }}
-    </Query>
-  );
+const SchoolPage = ({ data: { loading, error, schoolBySlug } }) => {
+  if (loading) return <div> Loading... </div>;
+  if (error) return <div> Error </div>;
+  console.log(schoolBySlug.id);
+  return <div>
+    <School {...schoolBySlug} />
+    <SchoolReviews schoolId={schoolBySlug.id}/>
+  </div>
 };
 
-export default SchoolPage;
+export default graphql(schoolPageQuery, {
+  options: ({ match }) => ({ variables: { slug: match.params.slug }})
+})(SchoolPage);

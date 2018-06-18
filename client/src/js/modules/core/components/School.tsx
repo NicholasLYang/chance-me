@@ -45,14 +45,14 @@ interface SchoolClasses {
 interface SchoolProps {
   classes: SchoolClasses;
   description: string;
-  topic_sentence: string;
+  gist: string;
   medium_image_url: string;
   name: string;
 }
 
 const School: React.SFC<SchoolProps> = ({
   classes,
-  topic_sentence,
+  gist,
   description,
   name,
   medium_image_url
@@ -64,7 +64,7 @@ const School: React.SFC<SchoolProps> = ({
         <img className={classes.image} src={medium_image_url} />
       </div>
       <div className={classes.description}>
-        <h3> {topic_sentence} </h3>
+        <h3> {gist} </h3>
         <p>{description}</p>
       </div>
     </div>
