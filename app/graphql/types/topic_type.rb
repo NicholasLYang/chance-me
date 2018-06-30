@@ -6,4 +6,5 @@ Types::TopicType = GraphQL::ObjectType.define do
   field :id, !types.ID
   field :slug, types.String
   field :name, types.String
+  field :color, types.String
 end

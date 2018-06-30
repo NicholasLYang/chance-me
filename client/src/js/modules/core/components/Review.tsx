@@ -1,8 +1,17 @@
 import * as React from "react"
+import injectSheet from "react-jss"
 
-const Review = ({ content }) => {
+const styles = {
+  Review: {
+    padding: "5px",
+    margin: "5px",
+    backgroundColor: "#dddddd",
+    fontSize: "1.2em"
+  }
+};
+const Review = ({ classes, content }) => {
   return (
-    <div>
+    <div className={classes.Review}>
       <div>
         { content }
       </div>
@@ -10,4 +19,4 @@ const Review = ({ content }) => {
   )
 };
 
-export default Review;
+export default injectSheet(styles)(Review);

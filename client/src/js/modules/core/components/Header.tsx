@@ -8,7 +8,6 @@ const styles = {
     margin: "0",
     backgroundColor: "white",
     width: "100%",
-    paddingLeft: "20px",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",

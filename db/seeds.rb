@@ -26,28 +26,31 @@ School.create([
                   description: LOREM_IPSUM
                 }])
 
+  Topic.create([
+                 { name: "Sports",
+                   slug: "sports",
+                   color: "#5BC0EB"},
+                 { name: "Professors",
+                   slug: "profs",
+                   color: "#FDE74C"},
+                 { name: "Location",
+                   slug: "location",
+                   color: "#9BC53D" },
+                 { name: "Student Body",
+                   slug: "student-body",
+                   color: "#E55934" }
+               ])
 
 School.find_each do |school|
   f = File.open(Rails.root + "db/columbia.jpg")
   school.image.attach(io: f, filename: "my_img.jpg") unless
     school.image.attached?
 
-  Topic.create([
-                 { name: "Sports",
-                   slug: "sports" },
-                 { name: "Professors",
-                   slug: "profs" },
-                 { name: "Location",
-                   slug: "location" },
-                 { name: "Student Body",
-                   slug: "student-body" }
-               ])
 
   Topic.find_each do |topic|
-    topic.reviews.create(content: "Fantastic! The best! I love it!",
-                         school_id: school.id)
-    topic.reviews.create(content: "Terrible! The worst! I hate it!",
-                         school_id: school.id)
+    section = school.sections.create(topic_id: topic.id)
+    section.reviews.create(content: "Fantastic! The best! I love it!")
+    section.reviews.create(content: "Terrible! The worst! I hate it!")
   end
 end
 

@@ -19,7 +19,6 @@ const schoolPageQuery = gql`
 const SchoolPage = ({ data: { loading, error, schoolBySlug } }) => {
   if (loading) return <div> Loading... </div>;
   if (error) return <div> Error </div>;
-  console.log(schoolBySlug.id);
   return <div>
     <School {...schoolBySlug} />
     <SchoolReviews schoolId={schoolBySlug.id}/>

@@ -10,5 +10,5 @@ Types::SchoolType = GraphQL::ObjectType.define do
   field :image_url, types.String
   field :gist, types.String
   field :medium_image_url, types.String
-  field :reviews, types[Types::ReviewType]
+  field :sections, types[Types::SectionType]
 end

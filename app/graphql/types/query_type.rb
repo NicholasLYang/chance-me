@@ -21,8 +21,8 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :schoolById, Types::SchoolType do
     description "Get school by id"
     argument :id, types.ID
-    resolve ->(obj, args, ctx) {
-      School.find(args["id"])
+    resolve -> (obj, args, context) {
+      Loaders::RecordLoader.for(School).load((args["id"]).to_i)
     }
   end
 

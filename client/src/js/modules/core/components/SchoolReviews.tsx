@@ -1,16 +1,21 @@
 import * as React from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import Review from "./Review"
+import { School, Variables } from "../types";
+import SchoolSection from "./SchoolSection";
 
 const schoolReviewsQuery = gql`
   query schoolReviewsQuery($id: ID!) {
     schoolById(id: $id) {
-      reviews {
+      sections {
         id
-        content
+        reviews {
+          id        
+          content
+        }
         topic {
           name
+          color
         }
       }
     }
@@ -20,15 +25,26 @@ const schoolReviewsQuery = gql`
 const SchoolReviews = ({ data: { loading, error, schoolById } }) => {
   if (loading) return <div> Loading... </div>;
   if (error) return <div> Error </div>;
+  const { sections } = schoolById;
   return (
     <div>
-      {schoolById.reviews.map(({ id, content }) => (
-        <Review key={id} content={content} />
-      ))}
+      {sections.map(section =>
+        <SchoolSection key={section.id} section={section}/>
+      )}
     </div>
   );
 };
 
-export default graphql(schoolReviewsQuery, {
+type Response = {
+  schoolById: School;
+};
+
+type InputProps = {
+  schoolId: string;
+};
+
+const withQuery = graphql<InputProps, Response, Variables>(schoolReviewsQuery, {
   options: ({ schoolId }) => ({ variables: { id: schoolId } })
-})(SchoolReviews);
+});
+
+export default withQuery(SchoolReviews);

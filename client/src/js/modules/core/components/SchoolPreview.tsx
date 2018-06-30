@@ -1,6 +1,7 @@
 import * as React from "react";
 import injectSheet from "react-jss";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Component } from "react";
 
 const styles = {
   SchoolPreview: {
@@ -17,7 +18,7 @@ const styles = {
     }
   },
   image: {
-    maxWidth: "80%",
+    maxWidth: "80%"
   }
 };
 
@@ -32,20 +33,18 @@ interface SchoolPreviewProps {
   medium_image_url: string;
 }
 
-const SchoolPreview: React.SFC<SchoolPreviewProps> = ({
-  classes,
-  name,
-  slug,
-  medium_image_url
-}) => {
-  return (
-    <Link to={`/schools/${slug}`}>
-    <div className={classes.SchoolPreview}>
-      <h2> {name} </h2>
-      <img className={classes.image} src={medium_image_url} />
-    </div>
-    </Link>
-  );
-};
+class SchoolPreview extends Component<SchoolPreviewProps, null> {
+  render() {
+    const { classes, name, slug, medium_image_url } = this.props;
+    return (
+      <Link to={`/schools/${slug}`}>
+        <div className={classes.SchoolPreview}>
+          <h2> {name} </h2>
+          <img className={classes.image} src={medium_image_url} />
+        </div>
+      </Link>
+    );
+  }
+}
 
 export default injectSheet(styles)(SchoolPreview);
