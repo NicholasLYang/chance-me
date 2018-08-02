@@ -4,22 +4,25 @@ import injectSheet from "react-jss";
 const styles = {
   School: {
     width: "100%",
-    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
+    justifyContent: "center"
   },
   imageContainer: {
-    display: "flex",
-    padding: "5%",
-    alignItems: "center",
-    flexDirection: "column"
+    position: "relative",
+    width: "1000px",
+    height: "500px",
+    filter: "grayscale(50%) brightness(50%)",
+    backgroundImage: props => `url(${props.image_url})`,
   },
   description: {
     display: "flex",
+    position: "absolute",
+    top: "20%",
+    left: "10%",
+    color: "gray",
     justifyContent: "center",
     flexDirection: "column",
-    maxWidth: "500px",
     lineHeight: "1.4em",
     fontSize: "1.2em"
   },
@@ -46,7 +49,7 @@ interface SchoolProps {
   classes: SchoolClasses;
   description: string;
   gist: string;
-  medium_image_url: string;
+  image_url: string;
   name: string;
 }
 
@@ -55,14 +58,11 @@ const School: React.SFC<SchoolProps> = ({
   gist,
   description,
   name,
-  medium_image_url
 }) => {
   return (
     <div className={classes.School}>
-      <div className={classes.imageContainer}>
-        <h2> {name} </h2>
-        <img className={classes.image} src={medium_image_url} />
-      </div>
+      <h2> {name} </h2>
+      <div className={classes.imageContainer} />
       <div className={classes.description}>
         <h3> {gist} </h3>
         <p>{description}</p>
