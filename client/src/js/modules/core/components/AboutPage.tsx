@@ -2,6 +2,9 @@ import * as React from "react";
 import injectSheet from "react-jss";
 import Logo from "../../icons/components/Logo";
 import Library from "../../icons/components/Library";
+import nyuImage from "../../../../../dist/dev/images/nyu.jpeg";
+import yaleImage from "../../../../../dist/dev/images/yale.jpeg";
+import harvardImage from "../../../../../dist/dev/images/harvard.jpeg";
 
 const styles = {
   AboutPage: {
@@ -28,6 +31,7 @@ const AboutPage = ({ classes }) => {
     <div className={classes.AboutPage}>
       <div className={classes.block}>
         <Logo className={classes.logo} />
+        <nyuImage classes={classes.nyuImage} />
         <h2> What is ChanceMe? </h2>
         <p>
           ChanceMe is a site dedicated to finding the best possible colleges for
